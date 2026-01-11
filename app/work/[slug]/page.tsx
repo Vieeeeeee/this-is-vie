@@ -85,6 +85,7 @@ export default async function Work({ params }: { params: Promise<{ slug: string 
             </header>
 
             <article className="prose prose-neutral dark:prose-invert max-w-none prose-headings:font-serif prose-headings:font-medium prose-p:text-muted prose-p:leading-relaxed prose-a:font-normal">
+                {/* @ts-expect-error Server Component */}
                 <MDXRemote source={work.content} components={components} />
             </article>
 
