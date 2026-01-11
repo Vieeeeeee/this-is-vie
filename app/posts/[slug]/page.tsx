@@ -52,11 +52,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function Post({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-    let post;
+    const post = getBySlug("posts", slug);
 
-    try {
-        post = getBySlug("posts", slug);
-    } catch (e) {
+    if (!post) {
         notFound();
     }
 

@@ -56,11 +56,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function Work({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-    let work;
+    const work = getBySlug("work", slug);
 
-    try {
-        work = getBySlug("work", slug);
-    } catch (e) {
+    if (!work) {
         notFound();
     }
 

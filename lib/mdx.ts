@@ -21,9 +21,11 @@ export interface ContentItem {
     [key: string]: any;
 }
 
-export function getBySlug(type: "posts" | "work", slug: string): ContentItem {
+export function getBySlug(type: "posts" | "work", slug: string): ContentItem | undefined {
     const realSlug = slug.replace(/\.mdx$/, "");
     const fullPath = path.join(contentDirectory, type, `${realSlug}.mdx`);
+    if (!fs.existsSync(fullPath)) return undefined;
+
     const fileContents = fs.readFileSync(fullPath, "utf8");
     const { data, content } = matter(fileContents);
 
@@ -41,6 +43,6 @@ export function getAll(type: "posts" | "work"): ContentItem[] {
     const slugs = getSlugs(type);
     const items = slugs
         .map((slug) => getBySlug(type, slug))
-        .sort((item1, item2) => (item1.date && item2.date ? (item1.date > item2.date ? -1 : 1) : 0));
-    return items;
+        .filter(Boolean) as ContentItem[];
+    return items.sort((item1, item2) => (item1.date && item2.date ? (item1.date > item2.date ? -1 : 1) : 0));
 }

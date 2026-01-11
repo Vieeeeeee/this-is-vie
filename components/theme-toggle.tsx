@@ -17,18 +17,21 @@ const applyTheme = (theme: "light" | "dark") => {
 };
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [theme, setTheme] = useState<"light" | "dark">(() => {
+    if (typeof document !== "undefined") {
+      const current = document.documentElement.dataset.theme;
+      if (current === "light" || current === "dark") return current;
+    }
+    return getPreferredTheme();
+  });
 
   useEffect(() => {
-    const preferred = getPreferredTheme();
-    setTheme(preferred);
-    applyTheme(preferred);
-  }, []);
+    applyTheme(theme);
+  }, [theme]);
 
   const toggle = () => {
     const next = theme === "light" ? "dark" : "light";
     setTheme(next);
-    applyTheme(next);
   };
 
   return (

@@ -76,9 +76,12 @@ export interface OGConfig {
   style?: string;
 }
 
+export interface SectionList {
+  title: string;
+  items: SimpleItem[];
+}
+
 export interface Content {
-  site: SiteMeta;
-  person: Person;
   site: SiteMeta;
   person: Person;
   now: SectionList;
