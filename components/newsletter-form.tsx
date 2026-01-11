@@ -13,9 +13,12 @@ export function NewsletterForm() {
 
     if (status === "success") {
         return (
-            <p className="text-sm text-subtle fade-in">
-                Thanks for subscribing. I'll keep it signal-only.
-            </p>
+            <>
+                <h3 className="section-header mb-4">Join my newsletter</h3>
+                <p className="text-muted mb-4 text-sm max-w-prose">
+                    I share notes on building systems, design engineering, and solo leverage. No spam, unsubscribe anytime.
+                </p>
+            </>
         );
     }
 

@@ -24,7 +24,7 @@ const components = {
     // We use standard img for MDX compatibility unless we write a custom plugin, or mapping
     // Actually, standard img works fine with next/image if we use the Image component explicitly in MDX, 
     // but for standard markdown ![alt](src), it renders <img>. We style it here.
-    Image: (props: any) => <Image className="rounded-lg my-8 w-full border border-border" {...props} />,
+    Image: (props: any) => <Image className="rounded-lg my-8 w-full border border-border" {...props} alt={props.alt || "Project image"} />,
 };
 
 type Props = {
