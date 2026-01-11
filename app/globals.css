@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Minimalist Solarized/Paper-like Light Mode */
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #555555;
+  --subtle: #888888;
+  --border: #eeeeee;
+  
+  /* Accent is minimal, essentially just a link color */
+  --accent: #222222; 
+  --accent-fg: #ffffff;
+  
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  /* Deep Minimalist Dark Mode */
+  --bg: #000000;
+  --fg: #e5e5e5;
+  --muted: #a3a3a3;
+  --subtle: #666666;
+  --border: #222222;
+  
+  --accent: #ffffff;
+  --accent-fg: #000000;
+  
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-serif), "Times New Roman", serif; /* Default to Serif for that "writer" feel */
+  min-height: 100vh;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "liga" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  max-width: var(--page-width, 68ch); /* Slightly narrower for reading */
+  margin: 0 auto;
+  padding: 4rem 1.5rem 6rem;
+}
+
+@media (min-width: 768px) {
+  main {
+    padding: 6rem 1.5rem 8rem;
+  }
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-sans), system-ui, sans-serif; /* Headings in Sans for contrast */
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+}
+
+p {
+  line-height: 1.75;
+  margin-bottom: 1.5em;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--fg);
+  text-decoration-color: var(--accent);
+}
+
+.section {
+  margin-bottom: 4rem;
+}
+
+.section-header {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--subtle);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+/* Minimalist Utilities - replacing "Components" */
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 600ms ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Button stripped to pure text link style or minimal outline */
+.button-primary, .button-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+  background: none;
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--subtle);
+}
+
+.button-primary:hover, .button-ghost:hover {
+  color: var(--fg);
+}
+
+/* List Items instead of Cards */
+.list-item {
+  display: block;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid transparent;
+  text-decoration: none !important;
+}
+
+.list-item:hover {
+  /* No background, maybe just text color shift */
+}
+
+.list-item h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 400;
+  display: inline;
+}
+
+.list-item .meta {
+  color: var(--subtle);
+  font-size: 0.9rem;
+  font-family: var(--font-sans);
+  margin-left: 0.75rem;
+}
+
+.list-item p {
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 50ch;
+}

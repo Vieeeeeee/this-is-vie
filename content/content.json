@@ -1,0 +1,123 @@
+{
+  "site": {
+    "title": "威 | Wei Wu",
+    "description": "设计师出身的投资者，构建 AI 原生的一人公司 OS。关注品味、系统、杠杆与可复利的创造。",
+    "domain": "https://weiwu.studio",
+    "language": "zh-CN",
+    "theme": {
+      "accent": "inkBlue",
+      "maxWidth": "72ch",
+      "density": "tight"
+    }
+  },
+  "person": {
+    "name_cn": "威",
+    "name_en": "Wei Wu",
+    "handle": "@wsiwsii",
+    "one_liner": "把创造做成资产，把系统做成杠杆。",
+    "belief": "长期主义很常见，长期可复现很稀缺。",
+    "cta": [
+      {
+        "label": "Projects",
+        "href": "#projects"
+      },
+      {
+        "label": "Contact",
+        "href": "#contact"
+      }
+    ]
+  },
+  "now": {
+    "title": "Now",
+    "items": [
+      {
+        "title": "铝型材水吧柜",
+        "detail": "从结构设计到可量产方案，打磨成一个能被复用的产品系统。",
+        "href": "/work/aluminum-bar"
+      },
+      {
+        "title": "设计参考无限生成器",
+        "detail": "把“找灵感”做成可检索、可迭代、可复用的生成工作流。",
+        "href": "https://weiwu.studio/work/design-infinite"
+      },
+      {
+        "title": "X 上写作",
+        "detail": "持续发布 AI 与设计的实操方法，偏规则、偏流程、偏可执行。",
+        "href": "https://x.com/wsiwsii"
+      }
+    ]
+  },
+  "projects": {
+    "title": "Projects"
+  },
+  "writing": {
+    "title": "Writing / Notes"
+  },
+  "proof": {
+    "title": "Proof",
+    "items": [
+      "能把想法推进到可上线版本，并形成可复用的结构与文档。",
+      "熟悉从前端到部署的整条链路：域名、DNS、数据库、对象存储、CI。",
+      "长期写作与迭代，偏方法论与执行清单，追求可复现。"
+    ]
+  },
+  "principles": {
+    "title": "Principles",
+    "items": [
+      "Clarity",
+      "Taste",
+      "Systems",
+      "Leverage",
+      "Small bets",
+      "Iteration",
+      "Craft"
+    ]
+  },
+  "toolkit": {
+    "title": "Toolkit",
+    "items": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "TailwindCSS",
+      "Vercel",
+      "Cloudflare",
+      "Neon Postgres",
+      "Supabase",
+      "R2 / S3",
+      "Notion",
+      "Figma",
+      "Claude Code",
+      "Gemini"
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "email": "wuwei5985@gmail.com",
+    "links": [
+      {
+        "label": "X",
+        "href": "https://x.com/wsiwsii"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/Vieeeeeee"
+      },
+      {
+        "label": "Notion",
+        "href": "https://note.weiwu.studio"
+      }
+    ],
+    "note": "合作与交流：一句话讲清你要解决的问题，我会更快回复。"
+  },
+  "footer": {
+    "text": "© 2026 威. 极简呈现，轻量统计，可随时迭代。",
+    "analytics": "optional"
+  },
+  "og": {
+    "title": "威 | Wei Wu",
+    "subtitle": "把品味变成标准，把标准变成系统，把系统变成复利。",
+    "bg": "offWhite",
+    "style": "minimal"
+  }
+}
