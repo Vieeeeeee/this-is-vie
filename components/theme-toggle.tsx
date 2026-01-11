@@ -17,22 +17,37 @@ const applyTheme = (theme: "light" | "dark") => {
 };
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<"light" | "dark">(() => {
-    if (typeof document !== "undefined") {
-      const current = document.documentElement.dataset.theme;
-      if (current === "light" || current === "dark") return current;
-    }
-    return getPreferredTheme();
-  });
+  const [theme, setTheme] = useState<"light" | "dark" | null>(null);
 
   useEffect(() => {
-    applyTheme(theme);
+    // Read theme only on client after mount
+    const current = document.documentElement.dataset.theme;
+    const initialTheme = (current === "light" || current === "dark") ? current : getPreferredTheme();
+    setTheme(initialTheme);
+    applyTheme(initialTheme);
+  }, []);
+
+  useEffect(() => {
+    if (theme) applyTheme(theme);
   }, [theme]);
 
   const toggle = () => {
     const next = theme === "light" ? "dark" : "light";
     setTheme(next);
   };
+
+  // Render placeholder during SSR to avoid hydration mismatch
+  if (theme === null) {
+    return (
+      <button
+        type="button"
+        className="button-ghost text-sm"
+        aria-label="切换浅色/深色"
+      >
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </button>
+    );
+  }
 
   return (
     <button
